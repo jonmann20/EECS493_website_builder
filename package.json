@@ -1,0 +1,17 @@
+{
+  "name": "website_builder",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Jon Wiedmann <jonwiedmann@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonmann20/EECS493_website_builder"
+  },
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.0.4"
+  }
+}
