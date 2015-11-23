@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EECS 493 website builder</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+	<link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style='display:block'>
+	<div id='nav'>
+	</div>
+	<div id='form'>
+	</div>
+	<iframe id='preview' frameborder=0 style='width:100%' hidden>
+	</iframe>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js'></script>
+	<script src="http://localhost:35729/livereload.js?snipver=1"></script>
+	<!--<script src="js/main.js"></script>-->
+
+	<script type='text/javascript'>
+		$(document).ready(function(){
+			$.get('nav.html', function(data) {
+				var template = Handlebars.compile(data);
+				//Would want to get all templates/themes from directory
+				var data = {
+					templates:['simple'],
+					themes:['light', 'dark']
+				}
+				var html = template(data);
+				$('#nav').html(html);
+				$('#preview').height($(window).height() - $('#nav').height() - 25);
+			});
+			$('#form').load('form.html', function(){
+				$.getScript('js/main.js');
+			});
+		});
+
+		$(document).on('click', '#link_form', function(){
+			$('#preview').hide();
+			$('#form').show();
+		})
+		.on('click', '#link_preview', function(){
+			$('#preview').show();
+			$('#form').hide();
+			updatePreview();
+		})
+		.on('click', '.nav > li.toggletab', function(){
+			$(this).addClass('active').siblings().removeClass('active');
+		});
+
+		function loadPreview(template_id, user_data){
+			var path = '/templates/' + template_id + '.html';
+
+			$.get(path, function(data) {
+				var template = Handlebars.compile(data);
+				var html = template(user_data);
+				//$('#preview').html(html);
+				var iFrame = $('#preview');
+				var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+				iFrameDoc.write(html);
+				iFrameDoc.close();
+			});
+		}
+
+		function updatePreview(){
+			loadPreview('simple', $('form').serializeObject());
+		}
+
+		$.fn.serializeObject = function()
+		{
+			var o = {};
+			var a = this.serializeArray();
+			$.each(a, function() {
+				if (o[this.name] !== undefined) {
+					if (!o[this.name].push) {
+						o[this.name] = [o[this.name]];
+					}
+					o[this.name].push(this.value || '');
+				} else {
+					o[this.name] = this.value || '';
+				}
+			});
+			return o;
+		};
+	</script>
+</body>
+</html>

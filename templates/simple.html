@@ -1,0 +1,18 @@
+<html>
+<head>
+	<link rel='stylesheet' href='templates/simple.css'>
+</head>
+<body>
+	<div style='text-align:center;width:100%'>
+		{{#if pic}}
+		<img src='{{pic}}' height="200" width="auto">
+		{{/if}}
+		<h1>{{fname}} {{lname}}</h1>
+		<p>{{about}}</p>
+		{{#if twitter}}
+		<a href="http://twitter.com/{{twitter}}" target='blank' class="icon fa-twitter"><span class="label">Twitter</span></a>
+		{{/if}}
+
+	</div>
+</body>
+</html>
