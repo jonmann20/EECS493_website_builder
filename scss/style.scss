@@ -79,6 +79,7 @@ $portfolio-label: $portfolio-lwidth + $portfolio-lpadding-right;
 		margin-left: calc(33.33333333% + 15px); // col-sm-4
 	}
 }
+
 .nav-tabs {
 	> li {
 
@@ -87,9 +88,9 @@ $portfolio-label: $portfolio-lwidth + $portfolio-lpadding-right;
 		}
 
 		> span {
-			display:none;
-			cursor:pointer;
-			position:absolute;
+			display: none;
+			cursor: pointer;
+			position: absolute;
 			right: 7px;
 			top: 10px;
 			color: red;
