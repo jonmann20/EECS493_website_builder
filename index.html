@@ -7,6 +7,7 @@
 	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 	<link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="assets/style.css">
+
 </head>
 <body>
 	<div class="jumbotron">
@@ -15,133 +16,153 @@
 			<p>Enter your information and we will create a site for you.</p>
 		</div>
 	</div>
-	<div class="container">
-		<form class="form-horizontal" role="form">
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="fname">First Name:</label>
-				<div class="col-sm-9">
-					<input id="fname" name="fname" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="lname">Last Name:</label>
-				<div class="col-sm-9">
-					<input id="lname" name="lname" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="about">About Me:</label>
-				<div class="col-sm-9">
-					<textarea id="about" name="about"></textarea>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="pic">Picture URL:</label>
-				<div class="col-sm-9">
-					<input id="pic" name="pic" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3">Picture Preview:</label>
-				<div class="col-sm-9">
-					<img class="pic-preview preview" src="img/noImage.png" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="email">Email:</label>
-				<div class="col-sm-9">
-					<input type="email" id="email" name="email" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="cell">Cell #:</label>
-				<div class="col-sm-9">
-					<input name="cell0" id="cell" class="area-code" maxlength="3" />
-					<input name="cell1" class="phnum" maxlength="4" />
-					<input name="cell2" class="phnum" maxlength="4" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="github">GitHub:</label>
-				<div class="col-sm-9">
-					<span class="at">@</span><input id="github" name="github" placeholder="username" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="portfolid">Portfolio:</label>
-				<div class="col-sm-9">
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="active"><a href="#portfolio-item1">Item 1</a> <span> x </span></li>
-						<li><a href="#" class="portfolio-add-item">+</a></li>
-					</ul>
+	
+	<div id = "intro">
+		<div class = "container">
+			<p>
+				Welcome to our EECS 493 Website Builder. This website builder generates different types of websites to best fit your purposes. You may choose what type of website you would like based on a template and a theme. Each template will have a particular layout and navigation.Each theme will have a different color scheme, look, feel, etc. After choosing the template and themes, you can add some interests/hobbies/etc and fill out a form with your personal information such as a portfolio you've created or your favorite social media websites. 
+			</p>
+			<button type="button" class="btn btn-success" id = "start"> Start Designing! </button>
+		</div>
+	</div>
 
-					<div class="tab-content">
-						<div id="portfolio-item1" class="tab-pane active portfolio-item">
-							<div class="pull-left col-sm-5">
-								<div class="portfolio-form-group">
-									<label class="portfolio-control-label" for="portfolio-image">Image URL:</label>
-									<input id="portfolio-image" name="portfolio-image" />
+	<div class = "active" id = "questions">
+		<div class = "container">
+			
+		</div>
+	</div>
+
+	<div class = "active">
+		<div class="container">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="fname">First Name:</label>
+
+					<div class="col-sm-9">
+						<input id="fname" name="fname" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="lname">Last Name:</label>
+					<div class="col-sm-9">
+						<input id="lname" name="lname" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="about">About Me:</label>
+					<div class="col-sm-9">
+						<textarea id="about" name="about"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="pic">Picture URL:</label>
+					<div class="col-sm-9">
+						<input id="pic" name="pic" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3">Picture Preview:</label>
+					<div class="col-sm-9">
+						<img class="pic-preview preview" src="img/noImage.png" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="email">Email:</label>
+					<div class="col-sm-9">
+						<input type="email" id="email" name="email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="cell">Cell #:</label>
+					<div class="col-sm-9">
+						<input name="cell0" id="cell" class="area-code" maxlength="3" />
+						<input name="cell1" class="phnum" maxlength="4" />
+						<input name="cell2" class="phnum" maxlength="4" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="github">GitHub:</label>
+					<div class="col-sm-9">
+						<span class="at">@</span><input id="github" name="github" placeholder="username" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="portfolid">Portfolio:</label>
+					<div class="col-sm-9">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="active"><a href="#portfolio-item1">Item 1</a> <span> x </span></li>
+							<li><a href="#" class="portfolio-add-item">+</a></li>
+						</ul>
+
+						<div class="tab-content">
+							<div id="portfolio-item1" class="tab-pane active portfolio-item">
+								<div class="pull-left col-sm-5">
+									<div class="portfolio-form-group">
+										<label class="portfolio-control-label" for="portfolio-image">Image URL:</label>
+										<input id="portfolio-image" name="portfolio-image" />
+									</div>
+									<div class="portfolio-form-group">
+										<label class="portfolio-control-label" for="portfolio-description">Description:</label>
+										<textarea id="portfolio-description" name="portfolio-description"></textarea>
+									</div>
+									<div class="portfolio-form-group">
+										<label class="portfolio-control-label" for="portfolio-link">link:</label>
+										<input id="portfolio-link" name="portfolio-link" placeholder="link to item" /><br />
+										<input id="portfolio-link-href" name="portfolio-link" placeholder="http://link.com/to/item" />
+									</div>
 								</div>
-								<div class="portfolio-form-group">
-									<label class="portfolio-control-label" for="portfolio-description">Description:</label>
-									<textarea id="portfolio-description" name="portfolio-description"></textarea>
+								<div class="portfolio-preview pull-right col-sm-7">
+									<div class="clearfix">
+										<img class="portfolio-preview-image pull-left col-sm-4" src="img/noImage.png" />
+										<p class="portfolio-preview-description pull-left col-sm-8">
+											Description
+										</p>
+									</div>
+									<a class="portfolio-preview-link" href="#" target="_blank">link</a>
 								</div>
-								<div class="portfolio-form-group">
-									<label class="portfolio-control-label" for="portfolio-link">link:</label>
-									<input id="portfolio-link" name="portfolio-link" placeholder="link to item" /><br />
-									<input id="portfolio-link-href" name="portfolio-link" placeholder="http://link.com/to/item" />
-								</div>
-							</div>
-							<div class="portfolio-preview pull-right col-sm-7">
-								<div class="clearfix">
-									<img class="portfolio-preview-image pull-left col-sm-4" src="img/noImage.png" />
-									<p class="portfolio-preview-description pull-left col-sm-8">
-										Description
-									</p>
-								</div>
-								<a class="portfolio-preview-link" href="#" target="_blank">link</a>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="resume">Resume URL:</label>
-				<div class="col-sm-9">
-					<input id="resume" name="resume" placeholder="Link to a pdf" />
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="resume">Resume URL:</label>
+					<div class="col-sm-9">
+						<input id="resume" name="resume" placeholder="Link to a pdf" />
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="meme">Favorite Meme:</label>
-				<div class="col-sm-9">
-					<input id="meme" name="meme" />
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="meme">Favorite Meme:</label>
+					<div class="col-sm-9">
+						<input id="meme" name="meme" />
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3">Meme Preview:</label>
-				<div class="col-sm-9">
-					<img class="meme-preview preview" src="img/noImage.png" />
+				<div class="form-group">
+					<label class="control-label col-sm-3">Meme Preview:</label>
+					<div class="col-sm-9">
+						<img class="meme-preview preview" src="img/noImage.png" />
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="twitter">Twitter:</label>
-				<div class="col-sm-9">
-					<span class="at">@</span><input id="twitter" name="twitter" placeholder="username" />
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="twitter">Twitter:</label>
+					<div class="col-sm-9">
+						<span class="at">@</span><input id="twitter" name="twitter" placeholder="username" />
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="instagram">Instagram:</label>
-				<div class="col-sm-9">
-					<span class="at">@</span><input id="instagram" name="instagram" placeholder="username" />
+				<div class="form-group">
+					<label class="control-label col-sm-3" for="instagram">Instagram:</label>
+					<div class="col-sm-9">
+						<span class="at">@</span><input id="instagram" name="instagram" placeholder="username" />
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-3 col-sm-9">
-					<button type="submit" class="btn btn-default">Submit</button>
+				<div class="form-group">
+					<div class="col-sm-offset-3 col-sm-9">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
+
 
 	<script src="http://localhost:35729/livereload.js?snipver=1"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
