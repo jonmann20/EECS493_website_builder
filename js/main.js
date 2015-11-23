@@ -55,6 +55,12 @@ window.Main = (function() {
 		});
 	}
 
+	function startBtnListener(){
+		$("#start").click(function(){
+			$(".active").css("display", "inline");
+		})
+	}
+
 	return {
 		init: function() {
 			clickEvents();
@@ -64,6 +70,7 @@ window.Main = (function() {
 			doPicturePreview($('#portfolio-image'), $('.portfolio-preview-image'));
 			doTextPreview($('#portfolio-description'), $('.portfolio-preview-description'));
 			doLinkPreview($('#portfolio-link'), $('#portfolio-link-href'), $('.portfolio-preview-link'));
+			startBtnListener();
 		}
 	};
 })();
@@ -71,3 +78,4 @@ window.Main = (function() {
 $(function() {
 	Main.init();
 });
+
