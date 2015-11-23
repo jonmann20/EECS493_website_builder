@@ -65,3 +65,6 @@ textarea {
   right: 7px;
   top: 10px;
   color: red; }
+
+.active {
+  display: none; }

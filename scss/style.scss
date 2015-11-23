@@ -96,3 +96,7 @@ $portfolio-label: $portfolio-lwidth + $portfolio-lpadding-right;
 		}
 	}
 }
+
+.active {
+	display: none;
+}
