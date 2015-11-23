@@ -57,8 +57,17 @@ window.Main = (function() {
 
 	function startBtnListener(){
 		$("#start").click(function(){
-			$(".active").css("display", "inline");
+			$("#options").css("display", "inline");
 		})
+	}
+
+	function optionsBtn(){
+		$("#submit-options").click(function(){
+			
+			$(".active").css("display", "inline");
+
+		})
+
 	}
 
 	return {
@@ -71,6 +80,7 @@ window.Main = (function() {
 			doTextPreview($('#portfolio-description'), $('.portfolio-preview-description'));
 			doLinkPreview($('#portfolio-link'), $('#portfolio-link-href'), $('.portfolio-preview-link'));
 			startBtnListener();
+			optionsBtn();
 		}
 	};
 })();
