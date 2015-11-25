@@ -3,22 +3,25 @@
 <head>
 	<title>EECS 493 website builder</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
 	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 	<link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="assets/style.css">
 </head>
-<body style='display:block'>
+<body>
 	<div id='nav'>
 	</div>
 	<div id='form'>
 	</div>
-	<iframe id='preview' frameborder=0 style='width:100%' hidden>
+	<iframe id='preview' frameborder=0 style='margin-top:-25px;width:100%' sandbox="allow-same-origin" hidden>
 	</iframe>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js'></script>
+	<script src='js/jszip.min.js'></script>
+	<script src='js/filesaver.min.js'></script>
+
 	<script src="http://localhost:35729/livereload.js?snipver=1"></script>
 	<!--<script src="js/main.js"></script>-->
 
@@ -33,7 +36,7 @@
 				}
 				var html = template(data);
 				$('#nav').html(html);
-				$('#preview').height($(window).height() - $('#nav').height() - 25);
+				$('#preview').height($(window).height() - $('#nav').height());
 			});
 			$('#form').load('form.html', function(){
 				$.getScript('js/main.js');
@@ -51,6 +54,17 @@
 		})
 		.on('click', '.nav > li.toggletab', function(){
 			$(this).addClass('active').siblings().removeClass('active');
+		})
+		.on('mouseover', '.theme', function(){
+			$('#theme').val($(this).html());
+			updatePreview();
+		})
+		.on('click', '#btn_export', function(){
+			var zip = new JSZip();
+			zip.file("index.html",  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';
+			zip.file("user_data.json", JSON.stringify($('form').serializeObject()));
+			var blob = zip.generate({type:"blob"});
+			saveAs(blob, "files.zip");
 		});
 
 		function loadPreview(template_id, user_data){

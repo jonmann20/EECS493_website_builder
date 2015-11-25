@@ -1,6 +1,9 @@
 <html>
 <head>
 	<link rel='stylesheet' href='templates/simple.css'>
+	{{#if theme}}
+	<link rel='stylesheet' href='themes/{{theme}}.css'>
+	{{/if}}
 </head>
 <body>
 	<div style='text-align:center;width:100%'>
@@ -12,7 +15,6 @@
 		{{#if twitter}}
 		<a href="http://twitter.com/{{twitter}}" target='blank' class="icon fa-twitter"><span class="label">Twitter</span></a>
 		{{/if}}
-
 	</div>
 </body>
 </html>
