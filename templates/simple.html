@@ -7,14 +7,22 @@
 </head>
 <body>
 	<div style='text-align:center;width:100%'>
-		{{#if pic}}
-		<img src='{{pic}}' height="200" width="auto">
+		{{#if image}}
+		<img src='{{image}}' height="200" width="auto">
 		{{/if}}
-		<h1>{{fname}} {{lname}}</h1>
+		<h1>{{name}}</h1>
 		<p>{{about}}</p>
 		{{#if twitter}}
 		<a href="http://twitter.com/{{twitter}}" target='blank' class="icon fa-twitter"><span class="label">Twitter</span></a>
 		{{/if}}
+		<div style='clear:both'>
+			{{#each portfolio}}
+			<div style="display:inline-block">
+				<img src='{{image}}' height="200" width="auto">
+				<h1>{{title}}</h1>
+			</div>
+			{{/each}}
+		</div>
 	</div>
 </body>
 </html>

@@ -1,151 +1,196 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>EECS 493 website builder</title>
+	<title>Website Builder</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> -->
-	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"> -->
-	<link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> 
+	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-	<div class="jumbotron">
-		<div class="container">
-			<h1>EECS 493 website builder</h1>
-			<p>Enter your information and we will create a site for you.</p>
-		</div>
+	<div id='nav'>
 	</div>
-	<div class="container">
-		<form class="form-horizontal" role="form">
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="fname">First Name:</label>
-				<div class="col-sm-9">
-					<input id="fname" name="fname" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="lname">Last Name:</label>
-				<div class="col-sm-9">
-					<input id="lname" name="lname" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="about">About Me:</label>
-				<div class="col-sm-9">
-					<textarea id="about" name="about"></textarea>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="pic">Picture URL:</label>
-				<div class="col-sm-9">
-					<input id="pic" name="pic" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3">Picture Preview:</label>
-				<div class="col-sm-9">
-					<img class="pic-preview preview" src="img/noImage.png" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="email">Email:</label>
-				<div class="col-sm-9">
-					<input type="email" id="email" name="email" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="cell">Cell #:</label>
-				<div class="col-sm-9">
-					<input name="cell0" id="cell" class="area-code" maxlength="3" />
-					<input name="cell1" class="phnum" maxlength="4" />
-					<input name="cell2" class="phnum" maxlength="4" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="github">GitHub:</label>
-				<div class="col-sm-9">
-					<span class="at">@</span><input id="github" name="github" placeholder="username" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="portfolid">Portfolio:</label>
-				<div class="col-sm-9">
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="active"><a href="#portfolio-item1">Item 1</a> <span> x </span></li>
-						<li><a href="#" class="portfolio-add-item">+</a></li>
-					</ul>
+	<div id='form'>
+	</div>
+	<div id='back' style='position:absolute;top:70px;left:20px' hidden>
+		<button id='back' class="btn btn-success"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back</button>
+	</div>
+	<iframe id='preview' frameborder=0 style='margin-top:-25px;margin-bottom:-25px;height:100%;width:100%' sandbox="allow-same-origin" hidden>
+	</iframe>
 
-					<div class="tab-content">
-						<div id="portfolio-item1" class="tab-pane active portfolio-item">
-							<div class="pull-left col-sm-5">
-								<div class="portfolio-form-group">
-									<label class="portfolio-control-label" for="portfolio-image">Image URL:</label>
-									<input id="portfolio-image" name="portfolio-image" />
-								</div>
-								<div class="portfolio-form-group">
-									<label class="portfolio-control-label" for="portfolio-description">Description:</label>
-									<textarea id="portfolio-description" name="portfolio-description"></textarea>
-								</div>
-								<div class="portfolio-form-group">
-									<label class="portfolio-control-label" for="portfolio-link">link:</label>
-									<input id="portfolio-link" name="portfolio-link" placeholder="link to item" /><br />
-									<input id="portfolio-link-href" name="portfolio-link" placeholder="http://link.com/to/item" />
-								</div>
-							</div>
-							<div class="portfolio-preview pull-right col-sm-7">
-								<div class="clearfix">
-									<img class="portfolio-preview-image pull-left col-sm-4" src="img/noImage.png" />
-									<p class="portfolio-preview-description pull-left col-sm-8">
-										Description
-									</p>
-								</div>
-								<a class="portfolio-preview-link" href="#" target="_blank">link</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="resume">Resume URL:</label>
-				<div class="col-sm-9">
-					<input id="resume" name="resume" placeholder="Link to a pdf" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="meme">Favorite Meme:</label>
-				<div class="col-sm-9">
-					<input id="meme" name="meme" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3">Meme Preview:</label>
-				<div class="col-sm-9">
-					<img class="meme-preview preview" src="img/noImage.png" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="twitter">Twitter:</label>
-				<div class="col-sm-9">
-					<span class="at">@</span><input id="twitter" name="twitter" placeholder="username" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3" for="instagram">Instagram:</label>
-				<div class="col-sm-9">
-					<span class="at">@</span><input id="instagram" name="instagram" placeholder="username" />
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-offset-3 col-sm-9">
-					<button type="submit" class="btn btn-default">Submit</button>
-				</div>
-			</div>
-		</form>
-	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js'></script>
+	<script src='compiled/templates.js'></script>
+	<script src='js/jszip.min.js'></script>
+	<script src='js/filesaver.min.js'></script>
 
 	<script src="http://localhost:35729/livereload.js?snipver=1"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+	<!--<script src="js/main.js"></script>-->
+
+	<script type='text/javascript'>
+
+		var template = '';
+		var theme = '';
+
+		$(document).ready(function(){ 
+			loadNav();
+			$('#form').load('form.html', function(){
+				$.getScript('js/main.js');
+				$('#portfolio-item1').load('portfolio_item.html');
+			});
+		});
+
+		$(document).on('click', '#link_form, #back', function(){
+			$('#preview, #back').hide();
+			$('#form').show();
+			$('#link_form').parent().addClass('active').siblings().removeClass('active');
+
+		})
+		.on('click', '#submit, #link_preview', function(e){
+			e.preventDefault();
+			$('#preview, #back').show();
+			$('#form').hide();
+			$('#link_preview').parent().addClass('active').siblings().removeClass('active');
+			updatePreview();
+		})
+		.on('click', '.nav > li.toggletab', function(){
+			$(this).addClass('active').siblings().removeClass('active');
+		})
+		.on('click', '.theme', function(){
+			theme = $(this).text();
+			$('#theme').val(theme);
+			updatePreview();
+		})
+		.on('mouseover', '.theme', function(){
+			$('#theme').val($(this).html());
+			updatePreview();
+		})
+		.on('mouseout', '.theme', function(){
+			$('#theme').val(theme);
+			updatePreview();
+		})
+		.on('click', '#btn_export', function(){export_files();})
+		.on('click', '.dropdown-menu li', function(){
+			$(this).addClass('active').siblings().removeClass('active');
+		})
+		.on('change', '.option', function(){
+			updateOptions();
+		});
+
+		function loadNav(){
+			$.get("getTemplates.php", function(_templates) {
+				$.get("getThemes.php", function(_themes) {
+					$.get('nav.html', function(data) {
+						var t = Handlebars.compile(data);
+
+						var html = t({
+							templates: JSON.parse(_templates),
+							themes: JSON.parse(_themes)
+						});
+						$('#nav').html(html);
+						template = JSON.parse(_templates)[0] || '';
+						theme = JSON.parse(_themes)[0] || '';
+						$('.dropdown-menu').each(function(){
+							$('li', this).eq(0).addClass('active').siblings().removeClass('active');
+							$('a', this).trigger('click');
+						});
+						
+						updatePreview();
+						updateOptions();
+					});
+				});
+			}).fail(function() {
+				alert( "error" );
+			});
+		}
+
+		function updateOptions(){
+			$('.form-group').not('._default').hide();
+			$('.option').each(function(){
+				if ($(this).is(':checked'))
+					$('._' + $(this).val()).show();
+			});
+		}
+		
+		function loadPreview(template_id, user_data){
+			if (template_id == '')
+				return;
+			var t = templates[template_id];
+			var html = t(user_data);
+
+			var iFrame = $('#preview');
+			var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+			iFrameDoc.write(html);
+			iFrameDoc.close();
+		}
+
+		function updatePreview(){
+			$('#preview').height($(window).height() - $('#nav').height()+5);
+			var portfolio_items = [];
+			$('form.portfolio-item').each(function(){
+				portfolio_items.push($(this).serializeObject());
+			})
+			var data = $('#basic-form').serializeObject();
+			data.portfolio = portfolio_items;
+			loadPreview(template, data);
+		}
+
+		$( window ).resize(function() {
+			updatePreview();
+
+		});
+
+		$.fn.serializeObject = function(){
+			var o = {};
+			var a = this.serializeArray();
+			$.each(a, function() {
+				if (o[this.name] !== undefined) {
+					if (!o[this.name].push) {
+						o[this.name] = [o[this.name]];
+					}
+					o[this.name].push(this.value || '');
+				} else {
+					o[this.name] = this.value || '';
+				}
+			});
+			return o;
+		};
+
+//var img = new Image();                
+  //img.src = localStorage.theImage;
+
+ // $('.#').html(img);
+
+ $(document).on("change",".upload",function(){
+ 	var id = $(this).attr('id');
+      var fileInput = $(this)[0];//returns a HTML DOM object by putting the [0] since it's really an associative array.
+      var file = fileInput.files[0]; //there is only '1' file since they are not multiple type.
+      var $form = $(this).closest('form');
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+           // Create a new image.
+           var img = new Image();
+
+           img.src = reader.result;
+           localStorage[id] = reader.result; //stores the image to localStorage
+           $form.find('.image-preview').html(img);
+           $form.find('.image').val(reader.result);
+       }
+
+       reader.readAsDataURL(file);//attempts to read the file in question.
+   });
+
+ function export_files(){
+
+ 	var zip = new JSZip();
+ 	zip.file("index.html",  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';
+ 	zip.file("user_data.json", JSON.stringify($('form').serializeObject()));
+ 	zip.file("image.png", localStorage.theImage.substr(localStorage.theImage.indexOf(',')+1), {base64: true})
+ 	var blob = zip.generate({type:"blob"});
+ 	saveAs(blob, "files.zip");
+ }
+</script>
 </body>
 </html>

@@ -1,9 +1,13 @@
 'use strict';
 
-let connect = require('gulp-connect');
+let connect = require('gulp-connect-php');
 let gulp = require('gulp');
 let liveReload = require('gulp-livereload'); // TODO: add clientside livereload
 let scss = require('gulp-sass');
+let handlebars = require('gulp-handlebars');
+var wrap = require('gulp-wrap');
+var declare = require('gulp-declare');
+var concat = require('gulp-concat');
 
 gulp.task('scss', () => {
 	return gulp.src('./scss/**/*.scss')
@@ -22,4 +26,20 @@ gulp.task('watch', () => {
 	//gulp.watch('./index.html', []);
 });
 
-gulp.task('default', ['scss', 'server', 'watch']);
+gulp.task('templates', function () {
+    gulp.src('templates/*.html')
+          .pipe(handlebars({
+      // Pass your local handlebars version
+      handlebars: require('handlebars')
+    }))
+      .pipe(wrap('Handlebars.template(<%= contents %>)'))
+      .pipe(declare({
+          namespace: 'templates',
+          noRedeclare: true, // Avoid duplicate declarations
+      }))
+      .pipe(concat('templates.js'))
+      .pipe(gulp.dest('compiled'));
+});
+
+
+gulp.task('default', ['scss', 'templates', 'server', 'watch']);

@@ -25,8 +25,8 @@ window.Main = (function() {
 			var tabId = 'portfolio-item' + id;
 
 			$(this).closest('li').before('<li><a href="#' + tabId + '">Item ' + id + '</a> <span> x </span></li>');
-			$('.tab-content').append('<div id="' + tabId + '" class="tab-pane portfolio-item">test</div>');
-
+			$('.tab-content').append('<div id="' + tabId + '" class="tab-pane portfolio-item"></div>');
+			$('#' + tabId).load('portfolio_item.html')
 
 			$('.nav-tabs li:nth-child(' + id + ') a').trigger('click');
 			//$('.nav-tabs a[href="' + href + '"]').tab('show');

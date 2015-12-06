@@ -27,17 +27,7 @@
 
 	<script type='text/javascript'>
 		$(document).ready(function(){
-			$.get('nav.html', function(data) {
-				var template = Handlebars.compile(data);
-				//Would want to get all templates/themes from directory
-				var data = {
-					templates:['simple'],
-					themes:['light', 'dark']
-				}
-				var html = template(data);
-				$('#nav').html(html);
-				$('#preview').height($(window).height() - $('#nav').height());
-			});
+			loadNav();
 			$('#form').load('form.html', function(){
 				$.getScript('js/main.js');
 			});
@@ -67,6 +57,23 @@
 			saveAs(blob, "files.zip");
 		});
 
+		function loadNav(){
+			$.get('nav.html', function(data) {
+				var template = Handlebars.compile(data);
+
+				var _templates = getTemplates();
+				var _themes = getThemes();
+				var data = {
+					templates: _templates,
+					themes: _themes
+				}
+
+				var html = template(data);
+				$('#nav').html(html);
+				$('#preview').height($(window).height() - $('#nav').height());
+			});
+		}
+
 		function loadPreview(template_id, user_data){
 			var path = '/templates/' + template_id + '.html';
 
@@ -85,6 +92,21 @@
 			loadPreview('simple', $('form').serializeObject());
 		}
 
+
+		function getThemes(){
+			$.get("getThemes.php", function(data) {
+				return JSON.parse(data);
+			});
+		}
+
+		function getTemplates(){
+			var _return;
+			$.get("getTemplates.php", function(data) {
+				_return = JSON.parse(data);
+			});
+			return _return;
+		}
+		
 		$.fn.serializeObject = function()
 		{
 			var o = {};
@@ -101,6 +123,7 @@
 			});
 			return o;
 		};
+
 	</script>
 </body>
 </html>
