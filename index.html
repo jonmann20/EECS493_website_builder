@@ -16,7 +16,7 @@
 	<div id='back' style='position:absolute;top:70px;left:20px' hidden>
 		<button id='back' class="btn btn-success"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back</button>
 	</div>
-	<iframe id='preview' frameborder=0 style='margin-top:-25px;margin-bottom:-25px;height:100%;width:100%' sandbox="allow-same-origin" hidden>
+	<iframe id='preview' frameborder=0 style='margin-top:-25px;margin-bottom:-25px;height:100%;width:100%' sandbox="allow-same-origin allow-scripts" hidden>
 	</iframe>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -69,6 +69,9 @@
 		})
 		.on('mouseout', '.theme', function(){
 			$('#theme').val(theme);
+			updatePreview();
+		}).on('click', '.template', function(){
+			template = $(this).text();
 			updatePreview();
 		})
 		.on('click', '#btn_export', function(){export_files();})
