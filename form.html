@@ -1,0 +1,182 @@
+<div class="container">
+
+	<div class='row'>
+		<div class='col-sm-12'>
+
+			<div class=' panel panel-default'>
+				<div class="panel-heading">
+					<h2 class="panel-title">I am:</h2>
+				</div>
+				<div class='panel-body'>
+					<div class='form-horizontal row'>
+						<div class="checkbox col-xs-4 col-sm-3">
+							<label>
+								<input class='option' type="checkbox" value="student">
+								<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+								Student
+							</label>
+						</div>
+						<div class="checkbox col-xs-4 col-sm-3">
+							<label>
+								<input class='option' type="checkbox" value="developer">
+								<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+								Developer
+							</label>
+						</div>
+						<div class="checkbox col-xs-4 col-sm-3">
+							<label>
+								<input class='option' type="checkbox" value="photographer">
+								<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+								Photographer
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='col-sm-6'>
+			<div class=' panel panel-default'>
+				<div class="panel-heading">
+					<h2 class="panel-title">Basic</h2>
+				</div>                 
+				<div class='panel-body'>
+					<form id='basic-form' class="form-horizontal" role="form">
+						<div id='image-profile' class="image-preview"></div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3">Profile Picture:</label>
+							<div class="col-sm-9">
+								<input class="upload" type="file" name="profile" id="profile" />
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="name">Name:</label>
+							<div class="col-sm-9">
+								<input id="name" name="name" />
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="about">About Me:</label>
+							<div class="col-sm-9">
+								<textarea id="about" name="about"></textarea>
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="email">Email:</label>
+							<div class="col-sm-9">
+								<input type="email" id="email" name="email" />
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="cell">Cell #:</label>
+							<div class="col-sm-9">
+								<input name="cell0" id="cell" class="area-code" maxlength="3" />
+								<input name="cell1" class="phnum" maxlength="4" />
+								<input name="cell2" class="phnum" maxlength="4" />
+							</div>
+						</div> 
+
+						<div class="form-group _student">
+							<label class="control-label col-sm-3" for="resume">Resume URL:</label>
+							<div class="col-sm-9">
+								<div class='input-group'>
+									<span class="input-group-addon" id="basic-addon1">http://</span>
+									<input id="resume" name="resume" placeholder="Link to a pdf" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="twitter">Twitter:</label>
+							<div class="col-sm-9">
+								<div class='input-group'>
+									<span class="input-group-addon" id="basic-addon1">@</span><input id="twitter" name="twitter" placeholder="username" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="instagram">Instagram:</label>
+							<div class="col-sm-9">
+								<div class='input-group'>
+									<span class="input-group-addon" id="basic-addon1">@</span><input id="instagram" name="instagram" placeholder="username" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group _developer">
+							<label class="control-label col-sm-3" for="github">GitHub:</label>
+							<div class="col-sm-9">
+								<div class='input-group'>
+									<span class="input-group-addon" id="basic-addon1">@</span><input id="github" name="github" placeholder="username" />
+								</div>
+							</div>
+						</div>
+						<input id='theme' name='theme' hidden/>
+						<input class='image' name='image' hidden/>
+
+					</form>
+						<!--
+						<div class="form-group _default">
+							<label class="control-label col-sm-3" for="pic">Picture URL:</label>
+							<div class="col-sm-9">
+								<input id="pic" name="pic" />
+							</div>
+						</div>
+						<div class="form-group _default">
+							<label class="control-label col-sm-3">Picture Preview:</label>
+							<div class="col-sm-9">
+								<img class="pic-preview preview" src="img/noImage.png" />
+							</div>
+						</div>
+					-->
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-6'>
+			<div class='panel panel-default'>
+				<div class="panel-heading">
+					<h2 class="panel-title">Portfolio</h2>
+				</div>
+				<div class='panel-body'>
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active"><a href="#portfolio-item1">Item 1</a> <span> x </span></li>
+						<li><a href="#" class="portfolio-add-item">+</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="portfolio-item1" class="tab-pane active">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class='col-sm-6'>
+			<div class=' panel panel-default'>
+				<div class="panel-heading">
+					<h2 class="panel-title">Social</h2>
+				</div>
+				<div class='panel-body'>
+
+					<<div class="form-group">
+						<label class="control-label col-sm-3" for="meme">Favorite Meme:</label>
+						<div class="col-sm-9">
+							<input id="meme" name="meme" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Meme Preview:</label>
+						<div class="col-sm-9">
+							<img class="meme-preview preview" src="img/noImage.png" />
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>-->
+	</div>
+	<div class="form-group _default">
+		<div class="col-sm-12">
+			<button id='submit' class="btn btn-success pull-right">Preview<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Website Builder</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="toggletab active"><a id='link_form' href="#">Form</a></li>
+				<li class="toggletab"><a id='link_preview' href="#">Preview</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Template<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						{{#each templates}}
+						<li><a href="#" class='template'>{{this}}</a></li>
+						{{/each}}
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Theme <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						{{#each themes}}
+						<li><a href="#" class='theme'>{{this}}</a></li>
+						{{/each}}
+					</ul>
+				</li>
+				<li><button id="btn_export" type="button" class="btn btn-success navbar-btn">Export</button></li>
+			</ul>
+		</div>
+	</div>
+</nav>
