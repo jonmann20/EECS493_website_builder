@@ -84,7 +84,7 @@ this["templates"]["simple"] = Handlebars.template({"1":function(container,depth0
 },"3":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "		<img src='"
+  return "		<img class=\"profile-image\" src='"
     + container.escapeExpression(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"image","hash":{},"data":data}) : helper)))
     + "' height=\"200\" width=\"auto\">\r\n";
 },"5":function(container,depth0,helpers,partials,data) {
@@ -117,4 +117,81 @@ this["templates"]["simple"] = Handlebars.template({"1":function(container,depth0
     + "		<div style='clear:both'>\r\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.portfolio : depth0),{"name":"each","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "		</div>\r\n	</div>\r\n</body>\r\n</html>";
+},"useData":true});
+this["templates"]["stylish-portfolio"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "            <img class=\"portfolio-image\" src=\""
+    + container.escapeExpression(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"image","hash":{},"data":data}) : helper)))
+    + "\">\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "    <section id=\"about\" class=\"success\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-12 text-center\">\n                    <h2>About</h2>\n\n                </div>\n            </div>\n            <!-- /.row -->\n            <div class=\"row\">\n                <div class=\"col-lg-8 col-lg-offset-2\">\n                    <p class=\"lead\">"
+    + container.escapeExpression(((helper = (helper = helpers.about || (depth0 != null ? depth0.about : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"about","hash":{},"data":data}) : helper)))
+    + "</p>\n                </div>\n            </div>\n        </div>\n        <!-- /.container -->\n    </section>\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "                 <div class=\"col-sm-4 portfolio-item\">\n                    <div class=\"portfolio-item\">\n                        <p>"
+    + alias4(((helper = (helper = helpers["link-title"] || (depth0 != null ? depth0["link-title"] : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"link-title","hash":{},"data":data}) : helper)))
+    + "</p>\n                        <a href=\""
+    + alias4(((helper = (helper = helpers["link-href"] || (depth0 != null ? depth0["link-href"] : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"link-href","hash":{},"data":data}) : helper)))
+    + "\">\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.image : depth0),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                       </a>\n\n                        <p>"
+    + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
+    + "</p>\n                    </div>\n                </div>\n";
+},"6":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "                            <img class=\"img-portfolio img-responsive\" src=\""
+    + container.escapeExpression(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"image","hash":{},"data":data}) : helper)))
+    + "\">\n";
+},"8":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "                                <li>\n                                    <a href=\"http://twitter.com/"
+    + container.escapeExpression(((helper = (helper = helpers.twitter || (depth0 != null ? depth0.twitter : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"twitter","hash":{},"data":data}) : helper)))
+    + "\" class=\"btn-social btn-outline\"><i class=\"fa fa-fw fa-twitter\"></i></a>\n                                </li>\n";
+},"10":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "                                <li>\n                                    <a href=\"http://instagram/"
+    + container.escapeExpression(((helper = (helper = helpers.instagram || (depth0 != null ? depth0.instagram : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"instagram","hash":{},"data":data}) : helper)))
+    + "\" class=\"btn-social btn-outline\"><i class=\"fa fa-fw fa-instagram\"></i></a>\n                                </li>\n";
+},"12":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "                                <li>\n                                    <a href=\"http://github.com/"
+    + container.escapeExpression(((helper = (helper = helpers.github || (depth0 != null ? depth0.github : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"github","hash":{},"data":data}) : helper)))
+    + "\" class=\"btn-social btn-outline\"><i class=\"fa fa-fw fa-github\"></i></a>\n                                </li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta name=\"description\" content=\""
+    + alias4(((helper = (helper = helpers.tagline || (depth0 != null ? depth0.tagline : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tagline","hash":{},"data":data}) : helper)))
+    + "\">\n    <meta name=\"author\" content=\""
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\">\n\n    <title>Stylish Portfolio - Start Bootstrap Theme</title>\n\n    <!-- Bootstrap Core CSS -->\n    <link rel='stylesheet' href='themes/"
+    + alias4(((helper = (helper = helpers.theme || (depth0 != null ? depth0.theme : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"theme","hash":{},"data":data}) : helper)))
+    + ".css'>\n\n    <!-- Custom CSS -->\n    <link href=\"templates/stylish-portfolio.css\" rel=\"stylesheet\">\n\n    <!-- Custom Fonts -->\n    <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">\n    <link href=\"http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic\" rel=\"stylesheet\" type=\"text/css\">\n\n    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->\n    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->\n    <!--[if lt IE 9]>\n        <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>\n        <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>\n    <![endif]-->\n\n</head>\n\n<body>\n\n    <!-- Navigation -->\n    <a id=\"menu-toggle\" href=\"#\" class=\"btn btn-dark btn-lg toggle\"><i class=\"fa fa-bars\"></i></a>\n    <nav id=\"sidebar-wrapper\">\n        <ul class=\"sidebar-nav\">\n            <a id=\"menu-close\" href=\"#\" class=\"btn btn-light btn-lg pull-right toggle\"><i class=\"fa fa-times\"></i></a>\n            <li class=\"sidebar-brand\">\n                <a href=\"#top\"  onclick = $(\"#menu-close\").click(); >Start Bootstrap</a>\n            </li>\n            <li>\n                <a href=\"#top\" onclick = $(\"#menu-close\").click(); >Home</a>\n            </li>\n            <li>\n                <a href=\"#about\" onclick = $(\"#menu-close\").click(); >About</a>\n            </li>\n            <li>\n                <a href=\"#portfolio\" onclick = $(\"#menu-close\").click(); >Portfolio</a>\n            </li>\n            <li>\n                <a href=\"#contact\" onclick = $(\"#menu-close\").click(); >Contact</a>\n            </li>\n        </ul>\n    </nav>\n\n    <!-- Header -->\n    <header id=\"top\" class=\"header\">\n        <div class=\"text-vertical-center\">\n            <h1 class=\"name\">"
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</h1>\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.image : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            <h3 class= \"skills\">"
+    + alias4(((helper = (helper = helpers.tagline || (depth0 != null ? depth0.tagline : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tagline","hash":{},"data":data}) : helper)))
+    + "</h3>\n            <br>\n        </div>\n    </header>\n\n    <!-- About -->\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.about : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n\n    <!-- Portfolio -->\n\n    <section id=\"portfolio\" class=\"portfolio\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-10 col-lg-offset-1 text-center\">\n                    <h2> Portfolio </h2>\n                    <hr class=\"small\">\n                </div>\n            </div>\n             <div class=\"row\">\n"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.portfolio : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n\n        </div>\n    </section>\n\n\n   <!-- Footer -->\n    <footer>\n        <div id=\"contact\" class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-10 col-lg-offset-1 text-center\">\n                    <h4><strong>Start Bootstrap</strong>\n                    </h4>\n                    <ul class=\"list-unstyled\">\n                        <li><i class=\"fa fa-phone fa-fw\"></i> (123) 456-7890</li>\n                        <li><i class=\"fa fa-envelope-o fa-fw\"></i>  <a href=\"mailto:"
+    + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
+    + "\">"
+    + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
+    + "</a>\n                        </li>\n                    </ul>\n                    <br>\n                    <ul class=\"list-inline\">\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.twitter : depth0),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.instagram : depth0),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.github : depth0),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "                    </ul>\n                    <hr class=\"small\">\n                    <p class=\"text-muted\">Copyright &copy; Your Website 2015</p>\n                </div>\n            </div>\n        </div>\n    </footer>\n\n    <!-- jQuery -->\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n\n    <!-- Bootstrap Core JavaScript -->\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script>\n    // Closes the sidebar menu\n    $(\"#menu-close\").click(function(e) {\n        e.preventDefault();\n        $(\"#sidebar-wrapper\").toggleClass(\"active\");\n    });\n\n    // Opens the sidebar menu\n    $(\"#menu-toggle\").click(function(e) {\n        e.preventDefault();\n        $(\"#sidebar-wrapper\").toggleClass(\"active\");\n    });\n\n    // Scrolls to the selected menu item on the page\n    $(function() {\n        $('a[href*=#]:not([href=#])').click(function() {\n            if (location.pathname.replace(/^\\//, '') == this.pathname.replace(/^\\//, '') || location.hostname == this.hostname) {\n\n                var target = $(this.hash);\n                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');\n                if (target.length) {\n                    $('html,body').animate({\n                        scrollTop: target.offset().top\n                    }, 1000);\n                    return false;\n                }\n            }\n        });\n    });\n    </script>\n\n</body>\n\n</html>\n";
 },"useData":true});

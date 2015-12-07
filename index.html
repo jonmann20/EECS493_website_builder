@@ -3,86 +3,90 @@
 <head>
 	<title>Website Builder</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> 
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="assets/style.css">
 
 </head>
 <body>
-	<div id='nav'>
+	<div id="nav"></div>
+	<div id="form"></div>
+	<div id="back" style="position: absolute; top: 70px; left: 20px;" hidden>
+		<button id="back" class="btn btn-success"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back</button>
 	</div>
-	<div id='form'>
-	</div>	
-	<div id='back' style='position:absolute;top:70px;left:20px' hidden>
-		<button id='back' class="btn btn-success"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back</button>
-	</div>
-	<iframe id='preview' frameborder=0 style='margin-top:-25px;margin-bottom:-25px;height:100%;width:100%' sandbox="allow-same-origin allow-scripts" hidden>
-	</iframe>
+	<iframe id="preview" frameborder=0 style="margin-top: -25px; margin-bottom: -25px; height: 100%; width: 100%;" sandbox="allow-same-origin allow-scripts" hidden></iframe>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js'></script>
-	<script src='compiled/templates.js'></script>
-	<script src='js/jszip.min.js'></script>
-	<script src='js/filesaver.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="compiled/templates.js"></script>
+	<script src="js/jszip.min.js"></script>
+	<script src="js/filesaver.min.js"></script>
 
 	<script src="http://localhost:35729/livereload.js?snipver=1"></script>
 	<!--<script src="js/main.js"></script>-->
 
-	<script type='text/javascript'>
+	<script>
+		'use strict';
 
 		var template = '';
 		var theme = '';
 
-		$(document).ready(function(){ 
+		$(document).ready(function() {
 			loadNav();
-			$('#form').load('form.html', function(){
+			$('#form').load('form.html', function() {
 				$.getScript('js/main.js');
 				$('#portfolio-item1').load('portfolio_item.html');
 			});
 		});
 
-		$(document).on('click', '#link_form, #back', function(){
+		$(document).on('click', '#link_form, #back', function() {
 			$('#preview, #back').hide();
 			$('#form').show();
 			$('#link_form').parent().addClass('active').siblings().removeClass('active');
 
 		})
-		.on('click', '#submit, #link_preview', function(e){
+		.on('click', '#submit, #link_preview', function(e) {
 			e.preventDefault();
 			$('#preview, #back').show();
 			$('#form').hide();
 			$('#link_preview').parent().addClass('active').siblings().removeClass('active');
 			updatePreview();
 		})
-		.on('click', '.nav > li.toggletab', function(){
+		.on('click', '.nav > li.toggletab', function() {
 			$(this).addClass('active').siblings().removeClass('active');
 		})
-		.on('click', '.theme', function(){
+		.on('click', '.theme', function() {
 			theme = $(this).text();
 			$('#theme').val(theme);
 			updatePreview();
 		})
-		.on('mouseover', '.theme', function(){
+		.on('mouseover', '.theme', function() {
 			$('#theme').val($(this).html());
 			updatePreview();
 		})
-		.on('mouseout', '.theme', function(){
+		.on('mouseout', '.theme', function() {
 			$('#theme').val(theme);
 			updatePreview();
-		}).on('click', '.template', function(){
+		}).on('click', '.template', function() {
 			template = $(this).text();
 			updatePreview();
 		})
-		.on('click', '#btn_export', function(){export_files();})
-		.on('click', '.dropdown-menu li', function(){
+		.on('click', '#btn_export', function() {
+			export_files();
+		})
+		.on('click', '#btn_import', function() {
+			$('#btn_import_real').trigger('click');
+		})
+		.on('change', '#btn_import_real', importJson)
+		.on('click', '.dropdown-menu li', function() {
 			$(this).addClass('active').siblings().removeClass('active');
 		})
 		.on('change', '.option', function(){
 			updateOptions();
 		});
 
-		function loadNav(){
+		function loadNav() {
 			$.get("getTemplates.php", function(_templates) {
 				$.get("getThemes.php", function(_themes) {
 					$.get('nav.html', function(data) {
@@ -99,7 +103,7 @@
 							$('li', this).eq(0).addClass('active').siblings().removeClass('active');
 							$('a', this).trigger('click');
 						});
-						
+
 						updatePreview();
 						updateOptions();
 					});
@@ -109,17 +113,20 @@
 			});
 		}
 
-		function updateOptions(){
+		function updateOptions() {
 			$('.form-group').not('._default').hide();
-			$('.option').each(function(){
-				if ($(this).is(':checked'))
+			$('.option').each(function() {
+				if($(this).is(':checked')) {
 					$('._' + $(this).val()).show();
+				}
 			});
 		}
-		
-		function loadPreview(template_id, user_data){
-			if (template_id == '')
+
+		function loadPreview(template_id, user_data) {
+			if(template_id === '') {
 				return;
+			}
+
 			var t = templates[template_id];
 			var html = t(user_data);
 
@@ -129,72 +136,84 @@
 			iFrameDoc.close();
 		}
 
-		function updatePreview(){
-			$('#preview').height($(window).height() - $('#nav').height()+5);
+		function updatePreview() {
+			$("#preview").height($(window).height() - $("#nav").height() + 5);
 			var portfolio_items = [];
-			$('form.portfolio-item').each(function(){
+			$("form.portfolio-item").each(function() {
 				portfolio_items.push($(this).serializeObject());
-			})
-			var data = $('#basic-form').serializeObject();
+			});
+
+			var data = $("#basic-form").serializeObject();
 			data.portfolio = portfolio_items;
 			loadPreview(template, data);
 		}
 
-		$( window ).resize(function() {
+		$(window).resize(function() {
 			updatePreview();
-
 		});
 
-		$.fn.serializeObject = function(){
+		$.fn.serializeObject = function() {
 			var o = {};
 			var a = this.serializeArray();
+
 			$.each(a, function() {
-				if (o[this.name] !== undefined) {
-					if (!o[this.name].push) {
+				if(o[this.name] !== undefined) {
+					if(!o[this.name].push) {
 						o[this.name] = [o[this.name]];
 					}
+
 					o[this.name].push(this.value || '');
-				} else {
+				}
+				else {
 					o[this.name] = this.value || '';
 				}
 			});
+
 			return o;
 		};
 
-//var img = new Image();                
-  //img.src = localStorage.theImage;
+		// var img = new Image();
+		// img.src = localStorage.theImage;
+		// $('.#').html(img);
 
- // $('.#').html(img);
+		$(document).on('change', '.upload', function() {
+			var id = $(this).attr('id');
+			var fileInput = $(this)[0];		// returns a HTML DOM object by putting the [0] since it's really an associative array.
+			var file = fileInput.files[0];	// there is only '1' file since they are not multiple type.
+			var $form = $(this).closest('form');
 
- $(document).on("change",".upload",function(){
- 	var id = $(this).attr('id');
-      var fileInput = $(this)[0];//returns a HTML DOM object by putting the [0] since it's really an associative array.
-      var file = fileInput.files[0]; //there is only '1' file since they are not multiple type.
-      var $form = $(this).closest('form');
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				// Create a new image.
+				var img = new Image();
 
-      var reader = new FileReader();
-      reader.onload = function(e) {
-           // Create a new image.
-           var img = new Image();
+				img.src = reader.result;
+				localStorage[id] = reader.result; // stores the image to localStorage
+				$form.find('.image-preview').html(img);
+				$form.find('.image').val(reader.result);
+			};
 
-           img.src = reader.result;
-           localStorage[id] = reader.result; //stores the image to localStorage
-           $form.find('.image-preview').html(img);
-           $form.find('.image').val(reader.result);
-       }
+			reader.readAsDataURL(file);		// attempts to read the file in question.
+		});
 
-       reader.readAsDataURL(file);//attempts to read the file in question.
-   });
+		function export_files() {
+			var zip = new JSZip();
+			zip.file('index.html',  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';
+			zip.file('user_data.json', JSON.stringify($('form').serializeObject()));
+			zip.file('image.png', localStorage.theImage.substr(localStorage.theImage.indexOf(',') + 1), {base64: true});
 
- function export_files(){
+			var blob = zip.generate({type: 'blob'});
+			saveAs(blob, 'files.zip');
+		}
 
- 	var zip = new JSZip();
- 	zip.file("index.html",  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';
- 	zip.file("user_data.json", JSON.stringify($('form').serializeObject()));
- 	zip.file("image.png", localStorage.theImage.substr(localStorage.theImage.indexOf(',')+1), {base64: true})
- 	var blob = zip.generate({type:"blob"});
- 	saveAs(blob, "files.zip");
- }
-</script>
+		function importJson(e) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var json = JSON.parse(e.target.result);
+				console.log(json);
+			};
+			reader.readAsText(e.target.files[0]);
+		}
+	</script>
 </body>
 </html>

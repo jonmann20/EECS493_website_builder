@@ -65,19 +65,20 @@ $portfolio-label: $portfolio-lwidth + $portfolio-lpadding-right;
 	}
 }
 
-html, body{
-	border:0px;
-	margin:0px;
-	padding:0px;
+html,
+body {
+	border: 0;
+	margin: 0;
+	padding: 0;
 }
 
-.navbar{
-	border:0px;
-	border-radius:0px;
+.navbar {
+	border: 0;
+	border-radius: 0;
 }
 
-/* Checkboxes */
-.checkbox label:after, 
+// Checkboxes
+.checkbox label:after,
 .radio label:after {
     content: '';
     display: table;
@@ -133,22 +134,28 @@ html, body{
 
 .checkbox label input[type="checkbox"]:disabled + .cr,
 .radio label input[type="radio"]:disabled + .cr {
-    opacity: .5;
+    opacity: 0.5;
 }
 
 input,
-textarea{
+textarea {
 	width: 100%;
 }
 
-.image-preview{
-	
+.image-preview {
 	padding:5px;
 	text-align:center;
 
-	img{
+	img {
 		max-width:150px;
 		max-height:150px;
 	}
+}
 
+.btn-import {
+	margin-left: 10px;
+
+	&#btn_import_real {
+		display: none;
+	}
 }
