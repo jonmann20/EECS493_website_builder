@@ -60,7 +60,8 @@
 			theme = $(this).text();
 			$('#theme').val(theme);
 			updatePreview();
-		})
+		});
+		/*
 		.on('mouseover', '.theme', function() {
 			$('#theme').val($(this).html());
 			updatePreview();
@@ -68,109 +69,113 @@
 		.on('mouseout', '.theme', function() {
 			$('#theme').val(theme);
 			updatePreview();
-		}).on('click', '.template', function() {
-			template = $(this).text();
-			updatePreview();
 		})
-		.on('click', '#btn_export', function() {
-			export_files();
-		})
-		.on('click', '#btn_import', function() {
-			$('#btn_import_real').trigger('click');
-		})
-		.on('change', '#btn_import_real', importJson)
-		.on('click', '.dropdown-menu li', function() {
-			$(this).addClass('active').siblings().removeClass('active');
-		})
-		.on('change', '.option', function(){
-			updateOptions();
-		});
+*/
+$(document).on('click', '.template', function() {
+	template = $(this).text();
+	updatePreview();
+})
+.on('click', '#btn_export', function() {
+	export_files();
+})
+.on('click', '#btn_import', function() {
+	$('#btn_import_real').trigger('click');
+})
+.on('change', '#btn_import_real', importJson)
+.on('click', '.dropdown-menu li', function() {
+	$(this).addClass('active').siblings().removeClass('active');
+})
+.on('change', '.option', function(){
+	updateOptions();
+});
 
-		function loadNav() {
-			$.get("getTemplates.php", function(_templates) {
-				$.get("getThemes.php", function(_themes) {
-					$.get('nav.html', function(data) {
-						var t = Handlebars.compile(data);
+function loadNav() {
+	$.get("getTemplates.php", function(_templates) {
+		$.get("getThemes.php", function(_themes) {
+			$.get('nav.html', function(data) {
+				var t = Handlebars.compile(data);
 
-						var html = t({
-							templates: JSON.parse(_templates),
-							themes: JSON.parse(_themes)
-						});
-						$('#nav').html(html);
-						template = JSON.parse(_templates)[0] || '';
-						theme = JSON.parse(_themes)[0] || '';
-						$('.dropdown-menu').each(function(){
-							$('li', this).eq(0).addClass('active').siblings().removeClass('active');
-							$('a', this).trigger('click');
-						});
-
-						updatePreview();
-						updateOptions();
-					});
+				var html = t({
+					templates: JSON.parse(_templates),
+					themes: JSON.parse(_themes)
 				});
-			}).fail(function() {
-				alert( "error" );
-			});
-		}
+				$('#nav').html(html);
+				template = JSON.parse(_templates)[0] || '';
+				theme = JSON.parse(_themes)[0] || '';
+				$('.dropdown-menu').each(function(){
+					$('li', this).eq(0).addClass('active').siblings().removeClass('active');
+					$('a', this).trigger('click');
+				});
 
-		function updateOptions() {
-			$('.form-group').not('._default').hide();
-			$('.option').each(function() {
-				if($(this).is(':checked')) {
-					$('._' + $(this).val()).show();
-				}
+				updatePreview();
+				updateOptions();
 			});
-		}
+		});
+	}).fail(function() {
+		alert( "error" );
+	});
+}
 
-		function loadPreview(template_id, user_data) {
-			if(template_id === '') {
-				return;
+function updateOptions() {
+	$('.form-group').not('._default').hide();
+	$('.option').each(function() {
+		if($(this).is(':checked')) {
+			$('._' + $(this).val()).show();
+		}
+	});
+}
+
+function loadPreview(template_id, user_data) {
+	if(template_id === '') {
+		return;
+	}
+
+	var t = templates[template_id];
+	var html = t(user_data);
+
+	var iFrame = $('#preview');
+	var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+
+	iFrameDoc.open();
+	iFrameDoc.write(html);
+	iFrameDoc.close();
+}
+
+function updatePreview() {
+	$("#preview").height($(window).height() - $("#nav").height() + 5);
+	var portfolio_items = [];
+	$("form.portfolio-item").each(function() {
+		portfolio_items.push($(this).serializeObject());
+	});
+
+	var data = $("#basic-form").serializeObject();
+	data.portfolio = portfolio_items;
+	loadPreview(template, data);
+}
+
+$(window).resize(function() {
+	updatePreview();
+});
+
+$.fn.serializeObject = function() {
+	var o = {};
+	var a = this.serializeArray();
+
+	$.each(a, function() {
+		if(o[this.name] !== undefined) {
+			if(!o[this.name].push) {
+				o[this.name] = [o[this.name]];
 			}
 
-			var t = templates[template_id];
-			var html = t(user_data);
-
-			var iFrame = $('#preview');
-			var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
-			iFrameDoc.write(html);
-			iFrameDoc.close();
+			o[this.name].push(this.value || '');
 		}
-
-		function updatePreview() {
-			$("#preview").height($(window).height() - $("#nav").height() + 5);
-			var portfolio_items = [];
-			$("form.portfolio-item").each(function() {
-				portfolio_items.push($(this).serializeObject());
-			});
-
-			var data = $("#basic-form").serializeObject();
-			data.portfolio = portfolio_items;
-			loadPreview(template, data);
+		else {
+			o[this.name] = this.value || '';
 		}
+	});
 
-		$(window).resize(function() {
-			updatePreview();
-		});
-
-		$.fn.serializeObject = function() {
-			var o = {};
-			var a = this.serializeArray();
-
-			$.each(a, function() {
-				if(o[this.name] !== undefined) {
-					if(!o[this.name].push) {
-						o[this.name] = [o[this.name]];
-					}
-
-					o[this.name].push(this.value || '');
-				}
-				else {
-					o[this.name] = this.value || '';
-				}
-			});
-
-			return o;
-		};
+	return o;
+};
 
 		// var img = new Image();
 		// img.src = localStorage.theImage;
@@ -197,13 +202,23 @@
 		});
 
 		function export_files() {
-			var zip = new JSZip();
-			zip.file('index.html',  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';
-			zip.file('user_data.json', JSON.stringify($('form').serializeObject()));
-			zip.file('image.png', localStorage.theImage.substr(localStorage.theImage.indexOf(',') + 1), {base64: true});
+			$.get("themes/" + theme + '.css', function(theme_css) {
+				$.get("templates/" + template + '.css', function(template_css) {
 
-			var blob = zip.generate({type: 'blob'});
-			saveAs(blob, 'files.zip');
+
+					var zip = new JSZip();
+					zip.file('index.html',  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';
+					zip.file('user_data.json', JSON.stringify($('form').serializeObject()));
+
+					zip.file('themes/' + theme + '.css', theme_css);
+					zip.file('templates/' + template + '.css', template_css);
+
+					//zip.file('image.png', localStorage.theImage.substr(localStorage.theImage.indexOf(',') + 1), {base64: true});
+
+					var blob = zip.generate({type: 'blob'});
+					saveAs(blob, 'files.zip');
+				});
+			});
 		}
 
 		function importJson(e) {
