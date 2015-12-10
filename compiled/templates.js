@@ -133,7 +133,7 @@ this["templates"]["simple"] = Handlebars.template({"1":function(container,depth0
 },"3":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "		<img src='"
+  return "		<img class=\"profile-image\" src='"
     + container.escapeExpression(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"image","hash":{},"data":data}) : helper)))
     + "' height=\"200\" width=\"auto\">\r\n";
 },"5":function(container,depth0,helpers,partials,data) {
@@ -170,13 +170,21 @@ this["templates"]["simple"] = Handlebars.template({"1":function(container,depth0
 this["templates"]["stylish-portfolio"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var helper;
 
+<<<<<<< HEAD
   return "            <img src=\""
+=======
+  return "            <img class=\"portfolio-image\" src=\""
+>>>>>>> 910c916549e0fde1c49988ce074019d988e13e39
     + container.escapeExpression(((helper = (helper = helpers.image || (depth0 != null ? depth0.image : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"image","hash":{},"data":data}) : helper)))
     + "\">\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var helper;
 
+<<<<<<< HEAD
   return "    <section id=\"about\" class=\"success\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-12 text-center\">\n                    <h2>About</h2>\n                     \n                </div>\n            </div>\n            <!-- /.row -->\n            <div class=\"row\">\n                <div class=\"col-lg-8 col-lg-offset-2\">\n                    <p class=\"lead\">"
+=======
+  return "    <section id=\"about\" class=\"success\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-12 text-center\">\n                    <h2>About</h2>\n\n                </div>\n            </div>\n            <!-- /.row -->\n            <div class=\"row\">\n                <div class=\"col-lg-8 col-lg-offset-2\">\n                    <p class=\"lead\">"
+>>>>>>> 910c916549e0fde1c49988ce074019d988e13e39
     + container.escapeExpression(((helper = (helper = helpers.about || (depth0 != null ? depth0.about : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"about","hash":{},"data":data}) : helper)))
     + "</p>\n                </div>\n            </div>\n        </div>\n        <!-- /.container -->\n    </section>\n";
 },"5":function(container,depth0,helpers,partials,data) {
@@ -232,9 +240,15 @@ this["templates"]["stylish-portfolio"] = Handlebars.template({"1":function(conta
     + alias4(((helper = (helper = helpers.tagline || (depth0 != null ? depth0.tagline : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"tagline","hash":{},"data":data}) : helper)))
     + "</h3>\n            <br>\n        </div>\n    </header>\n\n    <!-- About -->\n"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.about : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+<<<<<<< HEAD
     + "\n\n    <!-- Portfolio -->\n    \n    <section id=\"portfolio\" class=\"portfolio\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-10 col-lg-offset-1 text-center\">\n                    <h2> Portfolio </h2>\n                    <hr class=\"small\">\n                </div>\n            </div>\n             <div class=\"row\">\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.portfolio : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "            </div>\n \n        </div>\n    </section>\n    \n\n   <!-- Footer -->\n    <footer>\n        <div id=\"contact\" class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-10 col-lg-offset-1 text-center\">\n                    <h4><strong>Start Bootstrap</strong>\n                    </h4>\n                    <ul class=\"list-unstyled\">\n                        <li><i class=\"fa fa-phone fa-fw\"></i> (123) 456-7890</li>\n                        <li><i class=\"fa fa-envelope-o fa-fw\"></i>  <a href=\"mailto:"
+=======
+    + "\n\n    <!-- Portfolio -->\n\n    <section id=\"portfolio\" class=\"portfolio\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-10 col-lg-offset-1 text-center\">\n                    <h2> Portfolio </h2>\n                    <hr class=\"small\">\n                </div>\n            </div>\n             <div class=\"row\">\n"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.portfolio : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n\n        </div>\n    </section>\n\n\n   <!-- Footer -->\n    <footer>\n        <div id=\"contact\" class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-10 col-lg-offset-1 text-center\">\n                    <h4><strong>Start Bootstrap</strong>\n                    </h4>\n                    <ul class=\"list-unstyled\">\n                        <li><i class=\"fa fa-phone fa-fw\"></i> (123) 456-7890</li>\n                        <li><i class=\"fa fa-envelope-o fa-fw\"></i>  <a href=\"mailto:"
+>>>>>>> 910c916549e0fde1c49988ce074019d988e13e39
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))
     + "\">"
     + alias4(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"email","hash":{},"data":data}) : helper)))

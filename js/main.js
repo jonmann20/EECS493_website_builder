@@ -3,9 +3,7 @@
  * Main
  */
 window.Main = (function() {
-
 	function clickEvents() {
-
 		$('.nav-tabs').on('click', 'a', function(e) {
 			e.preventDefault();
 			if(!$(this).hasClass('portfolio-add-item')) {
@@ -25,7 +23,7 @@ window.Main = (function() {
 			var tabId = 'portfolio-item' + id;
 
 			$(this).closest('li').before('<li><a href="#' + tabId + '">Item ' + id + '</a> <span> x </span></li>');
-			$('.tab-content').append('<div id="' + tabId + '" class="tab-pane portfolio-item"></div>');
+			$('.tab-content').append('<div id="' + tabId + '" class="tab-pane"></div>');
 			$('#' + tabId).load('portfolio_item.html')
 
 			$('.nav-tabs li:nth-child(' + id + ') a').trigger('click');
@@ -55,19 +53,16 @@ window.Main = (function() {
 		});
 	}
 
-	function startBtnListener(){
-		$("#start").click(function(){
+	function startBtnListener() {
+		$("#start").on('click', function() {
 			$("#options").css("display", "inline");
-		})
+		});
 	}
 
-	function optionsBtn(){
-		$("#submit-options").click(function(){
-			
-			$(".active").css("display", "inline");
-
-		})
-
+	function optionsBtn() {
+		$('#submit-options').on('click', function() {
+			$('.active').css('display', 'inline');
+		});
 	}
 
 	return {
@@ -88,4 +83,3 @@ window.Main = (function() {
 $(function() {
 	Main.init();
 });
-
