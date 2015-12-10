@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--<link rel="icon" href="assets/img/favicon.ico">-->
+
+  <title>{{name}}</title>
+
+  <!-- Custom styles for this template -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  {{#if theme}}
+  <link rel='stylesheet' href='themes/{{theme}}.css'>
+  {{/if}}
+  <link rel='stylesheet' href='templates/basic.css'>
+
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <!--<script src="assets/js/ie10-viewport-bug-workaround.js"></script>-->
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+
+    <body>
+
+      <div id="h" style="background: url({{image}}) no-repeat center top;">
+        <div class="logo">
+          <h2>{{name}}</h2>
+        </div><!--/logo-->
+        <div class="container centered">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h1>Hello, my name is <b>{{name}}</b>.<br/>{{tagline}}</h1>
+            </div>
+          </div><!--/row-->
+
+          <div class="row mt">
+            <div class="col-sm-4">
+              <i class="ion-ios7-monitor-outline"></i>
+              <h3>Web Design</h3>
+            </div><!--/col-md-4-->
+
+            <div class="col-sm-4">
+              <i class="ion-ios7-browsers-outline"></i>
+              <h3>UI Development</h3>
+            </div><!--/col-md-4-->
+
+            <div class="col-sm-4">
+              <i class="ion-ios7-copy-outline"></i>
+              <h3>Brand Identity</h3>
+            </div><!--/col-md-4-->
+
+          </div><!--/row-->
+        </div><!--/container-->
+      </div><!--H-->
+
+      <div class="container ptb">
+        <div class="row">
+          <h2 class="centered mb">I craft handsome sites & stunning apps<br/>that empower your startup.</h2>
+          <div class="col-md-6">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div><!--/col-md-6-->
+          <div class="col-md-6">
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software.</p>
+          </div><!--/col-md-6-->
+        </div><!--/row-->
+      </div><!-- /.container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <img src="assets/img/items.png" class="img-responsive" alt="">
+          </div>
+        </div><!--/row-->
+      </div><!--/.container-->
+
+      <div id="g">
+        <div class="container">
+          <div class="row centered">
+            <h2>Check some of my latest works.</h2>
+            <div class="col-md-8 col-md-offset-2">
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text.<br/>It has roots in a piece of classical Latin literature<br/>from 45 BC, making it over 2000 years old.</p>
+
+            </div><!--/col-md-8-->
+          </div><!--/row-->
+        </div><!--/.container-->
+        <div class="portfolio-centered mt">
+          <div class="recentitems portfolio">
+          {{#each portfolio}}
+            <div class="portfolio-item graphic-design">
+              <div class="he-wrap tpl6">
+                <img src="{{image}}" class="img-responsive" alt="">
+                <div class="he-view">
+                  <div class="bg a0" data-animate="fadeIn">
+                    <h3 class="a1" data-animate="fadeInDown">{{title}}</h3>
+                    <p class="a1" data-animate="fadeInDown">{{description}}</p>
+                    <a data-rel="prettyPhoto" href="assets/img/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="ion-search"></i></a>
+                    <a href="{{link-href}}" class="dmbutton a2" data-animate="fadeInUp"><i class="ion-link"></i></a>
+                  </div><!-- he bg -->
+                </div><!-- he view -->    
+              </div><!-- he wrap -->
+            </div><!-- end col-12 -->
+            {{/each}}
+          </div><!-- portfolio -->
+        </div><!-- portfolio container -->
+<!--
+        <div class="container mt">
+          <div class="row clients centered">
+            <p class="mb">Some clients that I had the pleasure to working for.</p>
+            <div class="col-sm-2 col-sm-offset-1">
+              <img src="assets/img/client1.png" alt="">
+            </div>
+            <div class="col-sm-2">
+              <img src="assets/img/client3.png" alt="">
+            </div>
+            <div class="col-sm-2">
+              <img src="assets/img/client2.png" alt="">
+            </div>
+            <div class="col-sm-2">
+              <img src="assets/img/client4.png" alt="">
+            </div>
+            <div class="col-sm-2">
+              <img src="assets/img/client5.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>-->
+<!--
+      <div id="sep">
+        <div class="container">
+          <div class="row centered">
+            <div class="col-md-8 col-md-offset-2">
+              <h1>I live in the amazing San Francisco</h1>
+              <h3 class="mb">Lorem Ipsum is simply dummy text<br/>of the printing and typesetting industry.</h3>
+              <button class="btn btn-conf btn-clear">Request for Information</button>
+            </div>
+          </div>
+        </div>
+      </div>-->
+
+      <div id="f">
+        <div class="container">
+          <div class="row centered">
+            <div class="col-md-8 col-md-offset-2">
+              <a href="#"><i class="ion-social-twitter"></i></a>
+              <a href="#"><i class="ion-social-dribbble"></i></a>
+              <a href="#"><i class="ion-social-instagram"></i></a>
+              <a href="#"><i class="ion-social-facebook"></i></a>
+            </div><!--/col-md-8-->
+          </div>
+        </div><!--/container-->
+      </div><!--/.F-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+    <script src="assets/js/retina-1.1.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.hoverdir/1.1.1/jquery.hoverdir.min.js"></script>
+    <script>!function(a){var b={fn:{moveZoom:function(a,b){var i,c=a.height(),d=a.width(),e=b.pageY-a.offset().top,f=b.pageX-a.offset().left,g=a.find("img"),h=a.data("zoom");h&&"auto"!=h?(i=parseFloat(h),g.css({width:d*i+"px",height:c*i+"px",top:-e*(i-1)+"px",left:-f*(i-1)+"px"})):(i=g.width()/d,g.css({top:-e*(i-1)+"px",left:-f*(i-1)+"px"}))},changeZoom:function(a,c,d,e,f){var i,j,k,l,m,n,g=a.find("img"),h=a.data("zoom");h="auto"==h?g.width()/a.width():parseFloat(h),i=a.data("zoomstep"),i=i?parseFloat(i):.5,j=a.data("zoomrange"),j=j?j.split(","):"1,4",k=parseFloat(j[0]),l=parseFloat(j[1])>h?parseFloat(j[1]):h,m=f>0?1:-1,n=Math.round(10*(h+i*m))/10,n>=k&&l>=n&&(a.data("zoom",n),b.fn.showZoomState(a,n),b.fn.moveZoom(a,c))},showZoomState:function(b,c){var d=b.find(".he-zoomstate");0==d.length&&(d=a('<span class="he-zoomstate">'+c+"X</span>").appendTo(b)),d.text(c+"X").stop(!0,!0).fadeIn(300).delay(200).fadeOut(300)},switchImg:function(a,b){var d,e,c=a.data("animate");c=c?c:"random","random"==c&&(d=["fadeIn","fadeInLeft","fadeInRight","fadeInUp","fadeInDown","rotateIn","rotateInLeft","rotateInRight","rotateInUp","rotateInDown","bounce","bounceInLeft","bounceInRight","bounceInUp","bounceInDown","elasticInLeft","elasticInRight","elasticInUp","elasticInDown","zoomIn","zoomInLeft","zoomInRight","zoomInUp","zoomInDown","jellyInLeft","jellyInRight","jellyInDown","jellyInUp","flipInLeft","flipInRight","flipInUp","flipInDown","flipInV","flipInH"],c=d[Math.floor(Math.random()*d.length)]),e=a.find("img"),e.length>1&&(b>0?(e.eq(0).attr("class","a0").appendTo(a),e.eq(1).attr("class","a0 "+c)):(e.eq(e.length-1).attr("class","a0 "+c).prependTo(a),e.eq(0).attr("class","a0")))}}};a(function(){a(document).on("mouseenter",".he-wrap",function(){var b=a(this).find(".he-view").addClass("he-view-show");a("[data-animate]",b).each(function(){var b=a(this).data("animate");a(this).addClass(b)}),a(this).find(".he-zoom").addClass("he-view-show")}).on("mouseleave",".he-wrap",function(){var b=a(this).find(".he-view").removeClass("he-view-show");a("[data-animate]",b).each(function(){var b=a(this).data("animate");a(this).removeClass(b)}),a(this).find(".he-zoom").removeClass("he-view-show")}).on("mousewheel",".he-wrap",function(c,d,e,f){var g,h,i;1==a(this).find(".he-sliders").length?(g=a(this).find(".he-sliders"),h=f>0?1:-1,b.fn.switchImg(g,h),c.preventDefault()):1==a(this).find(".he-zoom").length&&(i=a(this).find(".he-zoom"),b.fn.changeZoom(i,c,d,e,f),c.preventDefault())}).on("mousemove",".he-zoom",function(c){b.fn.moveZoom(a(this),c)}).on("click",".he-pre",function(){var c=a(this).parents(".he-wrap").find(".he-sliders");b.fn.switchImg(c,-1)}).on("click",".he-next",function(){var c=a(this).parents(".he-wrap").find(".he-sliders");b.fn.switchImg(c,1)})})}(jQuery),function(a){function d(b){var c=b||window.event,d=[].slice.call(arguments,1),e=0,g=0,h=0;return b=a.event.fix(c),b.type="mousewheel",c.wheelDelta&&(e=c.wheelDelta/120),c.detail&&(e=-c.detail/3),h=e,void 0!==c.axis&&c.axis===c.HORIZONTAL_AXIS&&(h=0,g=-1*e),void 0!==c.wheelDeltaY&&(h=c.wheelDeltaY/120),void 0!==c.wheelDeltaX&&(g=-1*c.wheelDeltaX/120),d.unshift(b,e,g,h),(a.event.dispatch||a.event.handle).apply(this,d)}var c,b=["DOMMouseScroll","mousewheel"];if(a.event.fixHooks)for(c=b.length;c;)a.event.fixHooks[b[--c]]=a.event.mouseHooks;a.event.special.mousewheel={setup:function(){if(this.addEventListener)for(var a=b.length;a;)this.addEventListener(b[--a],d,!1);else this.onmousewheel=d},teardown:function(){if(this.removeEventListener)for(var a=b.length;a;)this.removeEventListener(b[--a],d,!1);else this.onmousewheel=null}},a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})}(jQuery);</script>
+    <script src="https://cdn.jsdelivr.net/prettyphoto/3.1.6/js/jquery.prettyPhoto.js"></script>
+    <script src="https://cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js"></script>
+
+
+    <script type='text/JavaScript'>
+    (function($) {
+
+// prettyPhoto
+  jQuery(document).ready(function(){
+    jQuery('a[data-gal]').each(function() {
+      jQuery(this).attr('rel', jQuery(this).data('gal'));
+    });   
+    jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'light_square',slideshow:false,overlay_gallery: false,social_tools:false,deeplinking:false});
+  }); 
+
+    
+})(jQuery);
+// Portfolio
+(function($) {
+  "use strict";
+  var $container = $('.portfolio'),
+  $items = $container.find('.portfolio-item'),
+  portfolioLayout = 'fitRows';
+
+  if( $container.hasClass('portfolio-centered') ) {
+    portfolioLayout = 'masonry';
+  }
+
+  $container.isotope({
+    filter: '*',
+    animationEngine: 'best-available',
+    layoutMode: portfolioLayout,
+    animationOptions: {
+      duration: 750,
+      easing: 'linear',
+      queue: false
+    },
+    masonry: {
+    }
+  }, refreshWaypoints());
+
+  function refreshWaypoints() {
+    setTimeout(function() {
+    }, 1000);   
+  }
+
+  $('nav.portfolio-filter ul a').on('click', function() {
+    var selector = $(this).attr('data-filter');
+    $container.isotope({ filter: selector }, refreshWaypoints());
+    $('nav.portfolio-filter ul a').removeClass('active');
+    $(this).addClass('active');
+    return false;
+  });
+
+  function getColumnNumber() { 
+    var winWidth = $(window).width(), 
+    columnNumber = 1;
+    
+    if (winWidth > 1200) {
+      columnNumber = 5;
+    } else if (winWidth > 950) {
+      columnNumber = 4;
+    } else if (winWidth > 600) {
+      columnNumber = 3;
+    } else if (winWidth > 400) {
+      columnNumber = 2;
+    } else if (winWidth > 250) {
+      columnNumber = 1;
+    }
+    return columnNumber;
+  }       
+
+  function setColumns() {
+    var winWidth = $(window).width(), 
+    columnNumber = getColumnNumber(), 
+    itemWidth = Math.floor(winWidth / columnNumber);
+
+    $container.find('.portfolio-item').each(function() { 
+      $(this).css( { 
+        width : itemWidth + 'px' 
+      });
+    });
+  }
+
+  function setPortfolio() { 
+    setColumns();
+    $container.isotope('reLayout');
+  }
+
+  $container.imagesLoaded(function () { 
+    setPortfolio();
+  });
+
+  $(window).on('resize', function () { 
+    setPortfolio();          
+  });
+})(jQuery);
+</script>
+</body>
+</html>
