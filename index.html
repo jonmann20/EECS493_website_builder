@@ -26,6 +26,8 @@
 	<script src="http://localhost:35729/livereload.js?snipver=1"></script>
 	<!--<script src="js/main.js"></script>-->
 
+	<script src="js/import.js"></script>
+
 	<script>
 		'use strict';
 
@@ -81,7 +83,7 @@ $(document).on('click', '.template', function() {
 .on('click', '#btn_import', function() {
 	$('#btn_import_real').trigger('click');
 })
-.on('change', '#btn_import_real', importJson)
+.on('change', '#btn_import_real', Import.json)
 .on('click', '.dropdown-menu li', function() {
 	$(this).addClass('active').siblings().removeClass('active');
 })
@@ -219,15 +221,6 @@ $.fn.serializeObject = function() {
 					saveAs(blob, 'files.zip');
 				});
 			});
-		}
-
-		function importJson(e) {
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				var json = JSON.parse(e.target.result);
-				console.log(json);
-			};
-			reader.readAsText(e.target.files[0]);
 		}
 	</script>
 </body>
