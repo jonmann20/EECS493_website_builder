@@ -42,9 +42,9 @@ window.Import = (function() {
 		//$('.photographer')
 		//$('.template')
 
-		// Normalize portofolio items
-		console.log(d);
+		// Patch together portfolio items (was easier for a clean export and a messy import)
 
+		// Normalize portofolio items
 		if(typeof(d.title) === 'string') {
 			d.title = [d.title];
 		}
@@ -60,8 +60,6 @@ window.Import = (function() {
 		if(typeof(d['link-href']) === 'string') {
 			d['link-href'] = [d['link-href']];
 		}
-
-		console.log(d);
 
 		// Determine number of portfolio items
 		var n = 0;
@@ -90,6 +88,7 @@ window.Import = (function() {
 			n = d['link-href'].length;
 		}
 
+		// Add portfolio items to page
 		for(var i=1; i < n; ++i) {
 			$('.portfolio-add-item').trigger('click');
 		}
@@ -98,7 +97,6 @@ window.Import = (function() {
 			var item;
 
 			d.image.forEach(function(img, i) {
-				console.log(img, i);
 				if(i !== 0) {
 					item = $('#portfolio-item' + (i));
 					item.find('.image-preview').html('<img src="' + d.image[i] + '">');
