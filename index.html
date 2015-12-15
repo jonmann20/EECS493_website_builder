@@ -204,9 +204,8 @@ $.fn.serializeObject = function() {
 		});
 
 		function export_files() {
-			$.get("themes/" + theme + '.css', function(theme_css) {
-				$.get("templates/" + template + '.css', function(template_css) {
-
+			$.get('themes/' + theme + '.css', function(theme_css) {
+				$.get('templates/' + template + '.css', function(template_css) {
 
 					var zip = new JSZip();
 					zip.file('index.html',  '<!DOCTYPE HTML><html>' + $('#preview').contents().find("html").html()) + '</html>';

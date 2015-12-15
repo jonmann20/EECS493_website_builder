@@ -40,25 +40,86 @@ window.Import = (function() {
 		});
 
 		//$('.photographer')
-
 		//$('.template')
 
-		d.description.forEach(function(d, i) {
-			if(i !== 0) {
-				$('.portfolio-add-item').trigger('click');
-			}
-		});
+		// Patch together portfolio items (was easier for a clean export and a messy import)
+
+		// Normalize portofolio items
+		if(typeof(d.title) === 'string') {
+			d.title = [d.title];
+		}
+
+		if(typeof(d.description) === 'string') {
+			d.description = [d.description];
+		}
+
+		if(typeof(d['link-title']) === 'string') {
+			d['link-title'] = [d['link-title']];
+		}
+
+		if(typeof(d['link-href']) === 'string') {
+			d['link-href'] = [d['link-href']];
+		}
+
+		// Determine number of portfolio items
+		var n = 0;
+
+		if(d.image[1] !== '') {  // d.image.length is always at least 2
+			n = d.image.length-1;
+		}
+
+		if(d.image.length-1 > n) {
+			n = d.image.length-1;
+		}
+
+		if(d.title.length > n) {
+			n = d.title.length;
+		}
+
+		if(d.description.length > n) {
+			n = d.description.length;
+		}
+
+		if(d['link-title'].length > n) {
+			n = d['link-title'].length;
+		}
+
+		if(d['link-href'].length > n) {
+			n = d['link-href'].length;
+		}
+
+		// Add portfolio items to page
+		for(var i=1; i < n; ++i) {
+			$('.portfolio-add-item').trigger('click');
+		}
 
 		setTimeout(function() {
 			var item;
 
+			d.image.forEach(function(img, i) {
+				if(i !== 0) {
+					item = $('#portfolio-item' + (i));
+					item.find('.image-preview').html('<img src="' + d.image[i] + '">');
+				}
+			});
+
+			d.title.forEach(function(title, i) {
+				item = $('#portfolio-item' + (i+1));
+				item.find('input[name=title]').val(d.title[i]);
+			});
+
 			d.description.forEach(function(desc, i) {
 				item = $('#portfolio-item' + (i+1));
-
-				item.find('.image-preview').html('<img src="' + d.image[i+1] + '">');
-				item.find('input[name=title]').val(d.title[i]);
 				item.find('textarea[name=description]').val(desc);
+			});
+
+			d['link-title'].forEach(function(linkTitle, i) {
+				item = $('#portfolio-item' + (i+1));
 				item.find('input[name=link-title]').val(d['link-title'][i]);
+			});
+
+			d['link-href'].forEach(function(href, i) {
+				item = $('#portfolio-item' + (i+1));
 				item.find('input[name=link-href]').val(d['link-href'][i]);
 			});
 		}, 0);
