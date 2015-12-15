@@ -249,7 +249,7 @@ div.dark_rounded #pp_full_res .pp_inline,div.dark_square #pp_full_res .pp_inline
 	width:61px;
 	height:35px;
 	margin-top:-18px;
-	background:url("../images/nav.png") no-repeat top left;
+	//background:url("../images/nav.png") no-repeat top left;
 	cursor:pointer;
 }
 .he-next
@@ -3308,7 +3308,7 @@ input {
 
 /* CONTACT SEPARATOR */
 #sep {
-	background: url(../img/sep.jpg) no-repeat center top;
+	//background: url(../img/sep.jpg) no-repeat center top;
 	padding-top: 100px;
 	background-attachment: relative;
 	background-position: center center;
@@ -3351,7 +3351,7 @@ input {
 
 /* HEADER 2 - PORTFOLIO SECTION */
 #h2 {
-	background: url(../img/header-2.jpg) no-repeat center top;
+	//background: url(../img/header-2.jpg) no-repeat center top;
 	padding-top: 5px;
 	background-attachment: relative;
 	background-position: center center;

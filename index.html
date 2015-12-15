@@ -102,13 +102,15 @@ function loadNav() {
 					themes: JSON.parse(_themes)
 				});
 				$('#nav').html(html);
-				template = JSON.parse(_templates)[0] || '';
-				theme = JSON.parse(_themes)[0] || '';
+				template =  JSON.parse(_templates)[1] || '';
+				theme =  JSON.parse(_themes)[1] || '';
 				$('.dropdown-menu').each(function(){
-					$('li', this).eq(0).addClass('active').siblings().removeClass('active');
-					$('a', this).trigger('click');
+					$('li', this).eq(1).addClass('active').siblings().removeClass('active');
 				});
 
+				$('.dropdown-menu').each(function(){
+					$('a', this).eq(1).trigger('click');
+				});
 				updatePreview();
 				updateOptions();
 			});
